@@ -10,7 +10,7 @@ A light weight nuget package to interact with azure storage account supports pro
       "Microsoft.Hosting.Lifetime": "Information"
     }
   },
-  "StoargeConfiguration": {
+  "StorageConfiguration": {
     "ConnectionString": ""
   }
 }
