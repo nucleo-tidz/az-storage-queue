@@ -1,16 +1,16 @@
 name: pack.nuget.yml
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
 
-  workflow_dispatch:
-   inputs:
-    enableManualDeployement :
-      description: 'Click to enable manual deployment from a custom branch to the test environment.'
-      default: false
-      required: true
-      type: boolean
+  #workflow_dispatch:
+  # inputs:
+  #  enableManualDeployement :
+  #    description: 'Click to enable manual deployment from a custom branch to the test environment.'
+  #    default: false
+  #    required: true
+  #    type: boolean
 
 jobs:
   publish:
