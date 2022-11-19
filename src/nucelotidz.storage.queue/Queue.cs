@@ -5,10 +5,10 @@ using nucelotidz.storage.queue.Serializers;
 
 namespace nucelotidz.storage.queue
 {
-    public class Queue: IQueue
+    public class Queue : IQueue
     {
-        readonly IConnectionFactory _connectionFactory;
-        readonly ISerializer _serializer;
+        private readonly IConnectionFactory _connectionFactory;
+        private readonly ISerializer _serializer;
         public Queue(IConnectionFactory connectionFactory, ISerializer serializer)
         {
             _connectionFactory = connectionFactory;
@@ -17,7 +17,7 @@ namespace nucelotidz.storage.queue
         public async Task<Response<SendReceipt>> Send<T>(string queueName, T dataObject)
         {
             string payload = _serializer.Serialize(dataObject);
-            var queueClient = _connectionFactory.GetClient(queueName);
+            Azure.Storage.Queues.QueueClient queueClient = _connectionFactory.GetClient(queueName);
             if (!await queueClient.ExistsAsync())
             {
                 throw new ApplicationException($"{queueName} doesnot exsit");
@@ -27,13 +27,13 @@ namespace nucelotidz.storage.queue
         public async Task<List<T>> Consume<T>(string queueName)
         {
             List<T> result = new();
-            var queueClient = _connectionFactory.GetClient(queueName);
+            Azure.Storage.Queues.QueueClient queueClient = _connectionFactory.GetClient(queueName);
             if (!await queueClient.ExistsAsync())
             {
                 throw new ApplicationException($"{queueName} doesnot exsit");
             }
             Response<QueueMessage[]> responses = await queueClient.ReceiveMessagesAsync(20, TimeSpan.FromMinutes(5));
-            foreach (var response in responses.Value)
+            foreach (QueueMessage response in responses.Value)
             {
                 result.Add(_serializer.Deserialize<T>(response.Body.ToString()));
                 await queueClient.DeleteMessageAsync(response.MessageId, response.PopReceipt);

@@ -9,7 +9,7 @@
             ConnectionString = connectionString;
             Retry = retry;
         }
-    
+
         public string? ConnectionString { get; init; }
         public int Retry { get; init; } = 2;
     }

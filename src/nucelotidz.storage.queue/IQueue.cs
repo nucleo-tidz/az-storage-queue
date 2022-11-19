@@ -7,6 +7,5 @@ namespace nucelotidz.storage.queue
     {
         Task<Response<SendReceipt>> Send<T>(string queueName, T dataObject);
         Task<List<T>> Consume<T>(string queueName);
-
     }
 }
