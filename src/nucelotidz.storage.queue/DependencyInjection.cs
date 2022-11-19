@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using nucelotidz.storage.queue.Configuration;
 using nucelotidz.storage.queue.Factory;
+using nucelotidz.storage.queue.Serializers;
 
 namespace nucelotidz.storage.queue
 {
@@ -10,7 +11,9 @@ namespace nucelotidz.storage.queue
         public static void Add(this IServiceCollection services, IConfigurationSection configuartionSection)
         {
             services.Configure<StoargeConfiguration>(configuartionSection);
+            services.AddTransient<ISerializer, Json>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
+            services.AddTransient<IQueue, Queue>();
         }
     }
 }
