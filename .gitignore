@@ -12,3 +12,5 @@
 /example/nucleotidz.queue.example/bin/Debug/net6.0
 /src/.vs/ProjectEvaluation
 /src/nucelotidz.storage.queue/bin/Debug/nucelotidz.storage.queue.1.0.0.nupkg
+/nuget.config
+/src/nucelotidz.storage.queue/bin/Debug/nucelotidz.storage.queue.1.0.1.nupkg
