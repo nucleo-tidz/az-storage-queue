@@ -10,4 +10,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\nucelotidz.storage.queue\nucelotidz.storage.queue.csproj" />
+  </ItemGroup>
 </Project>

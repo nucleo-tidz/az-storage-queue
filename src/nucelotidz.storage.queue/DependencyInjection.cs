@@ -8,12 +8,12 @@ namespace nucelotidz.storage.queue
 {
     public static class DependencyInjection
     {
-        public static void Add(this IServiceCollection services, IConfigurationSection configuartionSection)
+        public static void AddQueueClient(this IServiceCollection services, IConfigurationSection configuartionSection)
         {
             services.Configure<StoargeConfiguration>(configuartionSection);
             services.AddTransient<ISerializer, Json>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
-            services.AddTransient<IQueue, Queue>();
+            services.AddTransient<IQueueClient, QueueClient>();
         }
     }
 }

@@ -5,16 +5,16 @@ using nucelotidz.storage.queue.Serializers;
 
 namespace nucelotidz.storage.queue
 {
-    public class Queue : IQueue
+    public class QueueClient : IQueueClient
     {
         private readonly IConnectionFactory _connectionFactory;
         private readonly ISerializer _serializer;
-        public Queue(IConnectionFactory connectionFactory, ISerializer serializer)
+        public QueueClient(IConnectionFactory connectionFactory, ISerializer serializer)
         {
             _connectionFactory = connectionFactory;
             _serializer = serializer;
         }
-        public async Task<Response<SendReceipt>> Send<T>(string queueName, T dataObject)
+        public async Task<Response<SendReceipt>> SendAsync<T>(string queueName, T dataObject)
         {
             string payload = _serializer.Serialize(dataObject);
             Azure.Storage.Queues.QueueClient queueClient = _connectionFactory.GetClient(queueName);
@@ -24,7 +24,7 @@ namespace nucelotidz.storage.queue
             }
             return await queueClient.SendMessageAsync(payload);
         }
-        public async Task<List<T>> Consume<T>(string queueName)
+        public async Task<List<T>> ConsumeAsync<T>(string queueName)
         {
             List<T> result = new();
             Azure.Storage.Queues.QueueClient queueClient = _connectionFactory.GetClient(queueName);

@@ -4,6 +4,6 @@ namespace nucelotidz.storage.queue.Factory
 {
     public interface IConnectionFactory
     {
-        QueueClient GetClient(string queueName);
+        Azure.Storage.Queues.QueueClient GetClient(string queueName);
     }
 }
