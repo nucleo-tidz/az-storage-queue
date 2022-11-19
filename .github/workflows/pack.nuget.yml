@@ -32,9 +32,9 @@ jobs:
       run: dotnet restore $solution
 
     - name: Build
-      run: dotnet build $solution --no-restore
-    - name: Pack
-      run: dotnet pack --configuration Release /p:Version=${version} --output .
+      run: dotnet build $solution /p:Version=${version} --no-restore
+    #- name: Pack
+    #  run: dotnet pack --configuration Release /p:Version=${version} --output .
 
     - name: Publish      
       run: nuget push **\*.${version}.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{secrets.NUGET_TOKEN}}
