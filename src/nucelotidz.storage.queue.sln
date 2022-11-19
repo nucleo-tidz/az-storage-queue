@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nucleotidz.queue.example", "..\example\nucleotidz.queue.example\nucleotidz.queue.example.csproj", "{02C60C34-1667-4A0B-8E69-10BEB4ED316C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{2EA338C9-8419-4AD5-9F48-27A752D3E067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EA338C9-8419-4AD5-9F48-27A752D3E067}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EA338C9-8419-4AD5-9F48-27A752D3E067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C60C34-1667-4A0B-8E69-10BEB4ED316C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C60C34-1667-4A0B-8E69-10BEB4ED316C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C60C34-1667-4A0B-8E69-10BEB4ED316C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C60C34-1667-4A0B-8E69-10BEB4ED316C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
