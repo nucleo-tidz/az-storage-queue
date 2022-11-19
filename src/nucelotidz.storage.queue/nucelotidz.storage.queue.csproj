@@ -4,6 +4,21 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <RootNamespace>nucelotidz.storage.queue</RootNamespace>
+	  <AssemblyName>nucelotidz.storage.queue</AssemblyName>
+	  <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+	  <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageId>nucelotidz.storage.queue</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Ahmar Husain</Authors>
+	  <Company>Nucleotidz</Company>
+	  <Product>Rock.Blob.IO</Product>
+	  <Description>Lightweight library to interact with storage account queue</Description>
+	  <PackageProjectUrl>https://github.com/nucleo-tidz/az-storage-queue</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/nucleo-tidz/az-storage-queue</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageTags>storage queue client</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
