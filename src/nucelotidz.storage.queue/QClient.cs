@@ -9,14 +9,14 @@ namespace nucelotidz.storage.queue
 {
     public class QClient : IQClient
     {
-        private readonly IOptions<StoargeConfiguration> _stoargeConfiguration;
+        private readonly IOptions<StorageConfiguration> _storageConfiguration;
         private readonly IConnectionFactory _connectionFactory;
         private readonly ISerializer _serializer;
-        public QClient(IConnectionFactory connectionFactory, ISerializer serializer, IOptions<StoargeConfiguration> stoargeConfiguration)
+        public QClient(IConnectionFactory connectionFactory, ISerializer serializer, IOptions<StorageConfiguration> storageConfiguration)
         {
             _connectionFactory = connectionFactory;
             _serializer = serializer;
-            _stoargeConfiguration = stoargeConfiguration;
+            _storageConfiguration = storageConfiguration;
 
         }
         public async Task<Response<SendReceipt>> SendAsync<T>(string queueName, T dataObject, TimeSpan ttl)
@@ -38,7 +38,7 @@ namespace nucelotidz.storage.queue
                 throw new ApplicationException($"{queueName} doesnot exsit");
             }
 
-            Response<QueueMessage[]> responses = await queueClient.ReceiveMessagesAsync(_stoargeConfiguration.Value.BatchSize, TimeSpan.FromMinutes(10));
+            Response<QueueMessage[]> responses = await queueClient.ReceiveMessagesAsync(_storageConfiguration.Value.BatchSize, TimeSpan.FromMinutes(10));
             foreach (QueueMessage response in responses.Value)
             {
                 result.Add(_serializer.Deserialize<T>(response.Body.ToString()));
@@ -54,7 +54,7 @@ namespace nucelotidz.storage.queue
             {
                 throw new ApplicationException($"{queueName} doesnot exsit");
             }          
-            Response<PeekedMessage[]> responses = await queueClient.PeekMessagesAsync(_stoargeConfiguration.Value.BatchSize);
+            Response<PeekedMessage[]> responses = await queueClient.PeekMessagesAsync(_storageConfiguration.Value.BatchSize);
             foreach (PeekedMessage response in responses.Value)
             {
                 result.Add(_serializer.Deserialize<T>(response.Body.ToString()));

@@ -8,10 +8,10 @@ namespace nucelotidz.storage.queue.Factory
 {
     public class ConnectionFactory : IConnectionFactory
     {
-        private readonly IOptions<StoargeConfiguration> _stoargeConfiguration;
-        public ConnectionFactory(IOptions<StoargeConfiguration> stoargeConfiguration)
+        private readonly IOptions<StorageConfiguration> _stoargeConfiguration;
+        public ConnectionFactory(IOptions<StorageConfiguration> stoargeConfiguration)
         {
-            ArgumentNullException.ThrowIfNull(stoargeConfiguration, nameof(StoargeConfiguration));
+            ArgumentNullException.ThrowIfNull(stoargeConfiguration, nameof(StorageConfiguration));
             _stoargeConfiguration = stoargeConfiguration;
         }
         public Azure.Storage.Queues.QueueClient GetClient(string queueName)

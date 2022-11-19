@@ -10,7 +10,7 @@ namespace nucelotidz.storage.queue
     {
         public static void AddQueueClient(this IServiceCollection services, IConfigurationSection configuartionSection)
         {
-            services.Configure<StoargeConfiguration>(configuartionSection);
+            services.Configure<StorageConfiguration>(configuartionSection);
             services.AddTransient<ISerializer, Json>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IQClient, QClient>();

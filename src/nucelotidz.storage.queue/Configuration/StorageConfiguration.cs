@@ -1,10 +1,10 @@
 ﻿namespace nucelotidz.storage.queue.Configuration
 {
-    public class StoargeConfiguration
+    public class StorageConfiguration
     {
-        public StoargeConfiguration()
+        public StorageConfiguration()
         { }
-        public StoargeConfiguration(string? connectionString, int retry)
+        public StorageConfiguration(string? connectionString, int retry)
         {
             ConnectionString = connectionString;
             Retry = retry;
