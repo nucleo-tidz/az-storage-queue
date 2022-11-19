@@ -4,14 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>dotnet-nucleotidz.queue.example-D700B4CA-9DAA-43D6-9BE2-C6FA3BAAF149</UserSecretsId>
+   
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\nucelotidz.storage.queue\nucelotidz.storage.queue.csproj" />
-  </ItemGroup>
+ 
 </Project>

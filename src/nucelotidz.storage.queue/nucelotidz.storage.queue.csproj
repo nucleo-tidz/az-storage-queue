@@ -10,7 +10,7 @@
 	  <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <PackageId>nucelotidz.storage.queue</PackageId>
-	  <Version>1.0.1</Version>
+	  <Version>1.0.2</Version>
 	  <Authors>Ahmar Husain</Authors>
 	  <Company>Nucleotidz</Company>
 	  <Product>Rock.Blob.IO</Product>
