@@ -12,5 +12,6 @@
 
         public string? ConnectionString { get; init; }
         public int Retry { get; init; } = 2;
+        public int BatchSize { get; init; } = 20;
     }
 }

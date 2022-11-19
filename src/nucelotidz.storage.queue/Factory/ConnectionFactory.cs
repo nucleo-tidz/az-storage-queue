@@ -28,7 +28,7 @@ namespace nucelotidz.storage.queue.Factory
                 },
                 MessageEncoding = QueueMessageEncoding.Base64
             };
-            var client = new Azure.Storage.Queues.QueueClient(_stoargeConfiguration.Value.ConnectionString, queueName, queueClientOptions);
+            var client = new QueueClient(_stoargeConfiguration.Value.ConnectionString, queueName, queueClientOptions);
             return client;
         }
     }
