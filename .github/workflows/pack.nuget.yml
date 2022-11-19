@@ -31,6 +31,9 @@ jobs:
 
     - name: Build
       run: dotnet build $solution --no-restore
+    - name: Set VERSION variable from tag
 
-    - name: Publish      
-      run: nuget push **\*.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{secrets.NUGET_TOKEN}}
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}"
+
+    #- name: Publish      
+    #  run: nuget push **\*.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{secrets.NUGET_TOKEN}}
