@@ -25,15 +25,15 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-
+    - name: Set version variable from tag
+      run: echo "version=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+    - name: Print version
+      run: echo "$version"
     - name: Restore dependencies
       run: dotnet restore $solution
 
     - name: Build
       run: dotnet build $solution --no-restore
-    - name: Set version variable from tag
-      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
-    - name: Print version
-      run: echo "${VERSION}"
+   
     #- name: Publish      
     #  run: nuget push **\*.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{secrets.NUGET_TOKEN}}
