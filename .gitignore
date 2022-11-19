@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs
+/src/nucelotidz.storage.queue/.vs/nucelotidz.storage.queue
+/src/nucelotidz.storage.queue/obj
