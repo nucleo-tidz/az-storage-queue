@@ -13,7 +13,7 @@ on:
       type: boolean
 
 jobs:
-  publish:
+  build:
     env:
       solution: '${{ github.workspace }}/nucelotidz.storage.queue.sln'
       feedurl : 'https://nuget.pkg.github.com/nucleo-tidz/index.json'
