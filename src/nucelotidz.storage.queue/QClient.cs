@@ -61,15 +61,26 @@ namespace nucelotidz.storage.queue
             }
             return result;
         }
-        public async Task<QueueProperties> GetProperties(string queueName)
+        public async Task<QueueProperties> GetPropertiesAsync(string queueName)
         {
             var queueClient = _connectionFactory.GetClient(queueName);
             if (!await queueClient.ExistsAsync())
             {
                 throw new ApplicationException($"{queueName} doesnot exsit");
             }
+
             Response<QueueProperties> responses = await queueClient.GetPropertiesAsync();
             return responses.Value;
+        }
+        public async Task<Response> PurgeAsync(string queueName)
+        {
+            var queueClient = _connectionFactory.GetClient(queueName);
+            if (!await queueClient.ExistsAsync())
+            {
+                throw new ApplicationException($"{queueName} doesnot exsit");
+            }
+            Response response = await queueClient.ClearMessagesAsync();
+            return response;
         }
     }
 }

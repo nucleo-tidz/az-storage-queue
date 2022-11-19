@@ -21,7 +21,7 @@ namespace nucleotidz.queue.example
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                Console.WriteLine("Press 'p' to produce 'c' to consume from the queue,'k' to peek , 'r' to get properties");
+                Console.WriteLine("Press 'p' to produce 'c' to consume from the queue,'k' to peek , 'r' to get properties , 'u' to purge");
                 var input = Console.ReadLine();
                 if (input.ToLower() == "p")
                 {
@@ -42,7 +42,11 @@ namespace nucleotidz.queue.example
                 }
                 else if (input.ToLower() == "r")
                 {
-                    var properties = await _queueClient.GetProperties("payment-q");
+                    var properties = await _queueClient.GetPropertiesAsync("payment-q");
+                }
+                else if (input.ToLower() == "u")
+                {
+                    var properties = await _queueClient.PurgeAsync("payment-q");
                 }
             }
         }
