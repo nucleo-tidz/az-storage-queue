@@ -35,4 +35,4 @@ jobs:
       run: dotnet build $solution /p:Version=${version} --no-restore
 
     - name: Publish      
-      run: nuget push **\*.${version}.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{secrets.NUGET_TOKEN}}
+      run: nuget push **\*.${version}.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{ secrets.GITHUB_TOKEN }}
