@@ -21,9 +21,9 @@ namespace nucleotidz.queue.example
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                Console.WriteLine("Press 'p' to produce 'c' to consume from the queue,'k' to peek , 'r' to get properties , 'u' to purge");
+                Console.WriteLine("Press '1' to produce '2' to consume from the queue,'3' to peek , '4' to get properties , '5' to purge");
                 var input = Console.ReadLine();
-                if (input.ToLower() == "p")
+                if (input.ToLower() == "2")
                 {
                     Payment payment = new Payment
                     {
@@ -32,19 +32,19 @@ namespace nucleotidz.queue.example
                     };
                     var response = await _queueClient.SendAsync("payment-q", payment, TimeSpan.FromDays(100));
                 }
-                else if (input.ToLower() == "c")
+                else if (input.ToLower() == "2")
                 {
                     List<Payment> payments = await _queueClient.ConsumeAsync<Payment>("payment-q");
                 }
-                else if (input.ToLower() == "k")
+                else if (input.ToLower() == "3")
                 {
                     List<Payment> payments = await _queueClient.PeekAsync<Payment>("payment-q");
                 }
-                else if (input.ToLower() == "r")
+                else if (input.ToLower() == "4")
                 {
                     var properties = await _queueClient.GetPropertiesAsync("payment-q");
                 }
-                else if (input.ToLower() == "u")
+                else if (input.ToLower() == "5")
                 {
                     var properties = await _queueClient.PurgeAsync("payment-q");
                 }
