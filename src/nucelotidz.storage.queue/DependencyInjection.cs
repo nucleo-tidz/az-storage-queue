@@ -14,6 +14,7 @@ namespace nucelotidz.storage.queue
             services.AddTransient<ISerializer, Json>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IQClient, QClient>();
+            services.AddTransient<IAdminQClient, AdminQClient>();
         }
     }
 }
