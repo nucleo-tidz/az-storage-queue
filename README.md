@@ -1,7 +1,7 @@
 # Storage account client
 
 A light weight nuget package to interact with azure storage account supports producing , consuming , peeking , getting properties wriiten on .NET 6.0
-
+> Follow this to install nuget package in your project - https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry
 ```
 {
   "Logging": {
