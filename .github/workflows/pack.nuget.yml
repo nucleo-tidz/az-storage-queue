@@ -4,17 +4,14 @@ on:
     types:
       - published
       - edited
-  push:
-    branches:
-      - '*'
 
-  workflow_dispatch:
-   inputs:
-    enableManualDeployement :
-      description: 'Click to enable manual deployment from a custom branch to the test environment.'
-      default: false
-      required: true
-      type: boolean
+  #workflow_dispatch:
+  # inputs:
+  #  enableManualDeployement :
+  #    description: 'Click to enable manual deployment from a custom branch to the test environment.'
+  #    default: false
+  #    required: true
+  #    type: boolean
 
 jobs:
   publish:
