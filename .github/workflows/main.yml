@@ -7,5 +7,6 @@ jobs:
     name: publish
     runs-on: ubuntu-latest
     steps:        
-    - name: Echo      
+    - name: Echo
+      if: github.event_name == 'release' && github.event.action == 'created'
       run: echo "Started"
