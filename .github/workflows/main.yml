@@ -1,7 +1,7 @@
 name: release.yml
 on:
   release:
-    types: [published,updated]
+    types: [published,edited]
   workflow_dispatch:
    inputs:
     enableManualDeployement :
