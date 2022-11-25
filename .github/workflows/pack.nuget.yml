@@ -34,5 +34,5 @@ jobs:
     - name: Build
       run: dotnet build $solution /p:Version=${version} --no-restore
 
-    - name: Publish      
-      run: nuget push **\*.${version}.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{ secrets.GITHUB_TOKEN }}
+    #- name: Publish      
+     # run: nuget push **\*.${version}.nupkg -Source $feedurl  -SkipDuplicate -ApiKey ${{ secrets.GITHUB_TOKEN }}
